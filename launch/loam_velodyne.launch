@@ -1,0 +1,11 @@
+<launch>
+
+  <arg name="rviz" default="true" />
+
+  <node pkg="loam_v" type="scan_registration" name="scan_registration" output="screen"/>
+
+  <group if="$(arg rviz)">
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find loam_v)/rviz_cfg/loam_velodyne.rviz" />
+  </group>
+
+</launch>
